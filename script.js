@@ -1,0 +1,64 @@
+const users = [
+    {
+        email: 'student@jobify.com',   // MAIN KEY
+        password: 'student1234',       // NEEDS TO BE HASHED
+        first: 'Emerson',              // FIRST NAME
+        middle: 'K',                   // MIDDLE INITIAL
+        last: 'Reinhard',              // LAST NAME
+        birthday: 703788000,           // SAVED AS UNIX TIMESTAMP
+        type: 0,                       // STUDENT
+        admin: false,                  // NOT ADMIN
+        verified: false                // EMAIL HAS NOT BEEN VERIFIED
+    },
+    {
+        email: 'employer@jobify.com',  // MAIN KEY
+        password: 'employer5678',      // NEEDS TO BE HASHED
+        first: 'Walmart',              // FIRST NAME
+        middle: '',                    // MIDDLE INITIAL
+        last: '',                      // LAST NAME
+        birthday: 484473600,           // SAVED AS UNIX TIMESTAMP
+        type: 1,                       // EMPLOYER
+        admin: false,                  // NOT ADMIN
+        verified: true                 // EMAIL HAS BEEN VERIFIED
+    },
+    {
+        email: 'counselor@jobify.com', // MAIN KEY
+        password: 'counselor90',       // NEEDS TO BE HASHED
+        first: 'Marena',               // FIRST NAME
+        middle: '',                    // MIDDLE INITIAL (OPTIONAL)
+        last: 'Crawford',              // LAST NAME
+        birthday: 315532800,           // SAVED AS UNIX TIMESTAMP
+        type: 2,                       // COUNSELOR
+        admin: true,                   // IS ADMIN
+        verified: true                 // EMAIL HAS BEEN VERIFIED
+    }
+]
+
+window.onload = function() {
+    const loggedInUser = localStorage.getItem('email')
+    if (loggedInUser) {
+        navbarShowProfile(loggedInUser)
+    } else {
+        navbarShowLogin()
+    }
+}
+
+function navbarShowLogin() {
+    document.getElementById('right-items').style.display = 'block'
+    document.getElementById('user-profile').style.display = 'none'
+}
+
+function navbarShowProfile() {
+    const user = users.find(u => u.email === email)
+    document.getElementById('right-items').style.display = 'none'
+    document.getElementById('user-profile').style.display = 'block'
+    document.getElementById('user-name').textContent = `${user.first} ${user.last}.`
+}
+
+function handleLogin(event) {
+    event.preventDefault()
+
+    const email = document.getElementById('login-email').value
+    const password = document.getElementById('login-password').value
+    const errorMsg = document.getElementById('login-error')
+}
