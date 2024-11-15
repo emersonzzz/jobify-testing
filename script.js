@@ -81,4 +81,8 @@ function handleLogin(event) {
     window.location.href = "index.html"
 }
 
+document.getElementById('login-button').addEventListener('click', function() {
+    window.location.href = 'portal.html';
+})
+
 document.getElementById('login-form').addEventListener('submit', handleLogin)
