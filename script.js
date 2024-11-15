@@ -48,7 +48,7 @@ function navbarShowLogin() {
     document.getElementById('user-profile').style.display = 'none'
 }
 
-function navbarShowProfile() {
+function navbarShowProfile(email) {
     const user = users.find(u => u.email === email)
     document.getElementById('right-items').style.display = 'none'
     document.getElementById('user-profile').style.display = 'block'
@@ -56,9 +56,8 @@ function navbarShowProfile() {
 }
 
 function handleLogin(event) {
-    console.log('handleLogin')
-
     event.preventDefault()
+    console.log('handleLogin')
 
     const email = document.getElementById('login-email').value
     const password = document.getElementById('login-password').value
@@ -87,4 +86,4 @@ document.getElementById('login-button').addEventListener('click', function() {
     window.location.href = 'portal.html';
 })
 
-document.getElementById('login-form').addEventListener('submit', handleLogin())
+document.getElementById('login-form').addEventListener('submit', handleLogin)
