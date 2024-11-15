@@ -61,4 +61,24 @@ function handleLogin(event) {
     const email = document.getElementById('login-email').value
     const password = document.getElementById('login-password').value
     const errorMsg = document.getElementById('login-error')
+
+    const user = users.find(u => u.email === email)
+
+    if (!user) {
+        errorMsg.textContent = "Invalid credentials"
+        return
+    }
+
+    if (user.password !== password) {
+        errorMsg.textContent = "Invalid credentials"
+        return
+    }
+
+    localStorage.setItem('email', email);
+
+    navbarShowProfile(email);
+
+    window.location.href = "index.html"
 }
+
+document.getElementById('login-form').addEventListener('submit', handleLogin)
