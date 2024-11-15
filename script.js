@@ -56,6 +56,8 @@ function navbarShowProfile() {
 }
 
 function handleLogin(event) {
+    console.log('handleLogin')
+
     event.preventDefault()
 
     const email = document.getElementById('login-email').value
@@ -85,4 +87,4 @@ document.getElementById('login-button').addEventListener('click', function() {
     window.location.href = 'portal.html';
 })
 
-document.getElementById('login-form').addEventListener('submit', handleLogin)
+document.getElementById('login-form').addEventListener('submit', handleLogin())
