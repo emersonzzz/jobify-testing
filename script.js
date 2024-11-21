@@ -15,7 +15,7 @@ const users = [
         password: 'employer5678',      // NEEDS TO BE HASHED
         first: 'Walmart',              // FIRST NAME
         middle: '',                    // MIDDLE INITIAL
-        last: '',                      // LAST NAME
+        last: 'Fulton',                      // LAST NAME
         birthday: 484473600,           // SAVED AS UNIX TIMESTAMP
         type: 1,                       // EMPLOYER
         admin: false,                  // NOT ADMIN
@@ -44,15 +44,15 @@ window.onload = function() {
 }
 
 function navbarShowLogin() {
-    document.getElementById('right-items').style.display = 'block'
+    document.getElementById('right-items').style.display = 'flex'
     document.getElementById('user-profile').style.display = 'none'
 }
 
 function navbarShowProfile(email) {
     const user = users.find(u => u.email === email)
     document.getElementById('right-items').style.display = 'none'
-    document.getElementById('user-profile').style.display = 'block'
-    document.getElementById('user-name').textContent = `${user.first} ${user.last}.`
+    document.getElementById('user-profile').style.display = 'flex'
+    document.getElementById('user-name').textContent = `${user.first} ${Array.from(user.last)[0]}.`
 }
 
 function handleLogin(event) {
